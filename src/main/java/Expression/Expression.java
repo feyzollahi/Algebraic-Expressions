@@ -32,11 +32,11 @@ public abstract class Expression implements ExpressionInterface {
     }
 
     public Expression sin() {
-        return null;
+        return new SinExpression(this);
     }
 
     public Expression cos() {
-        return null;
+        return new CosExpression(this);
     }
 
     public Expression ln() {
@@ -46,7 +46,7 @@ public abstract class Expression implements ExpressionInterface {
     public abstract Expression eval(Variable var, double val);
     public abstract Expression derivate(Variable var);
     public abstract boolean isConstant();
-
+    public abstract String toString();
     public Expression makeNegative(){
         Constant constant = new Constant(-1);
         MultiplyExpression multiplyExpression = new MultiplyExpression(constant);

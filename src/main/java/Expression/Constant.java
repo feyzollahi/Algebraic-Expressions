@@ -28,4 +28,9 @@ public class Constant extends Expression {
     public double eval(){
         return number;
     }
+
+    @Override
+    public String toString(){
+        return String.valueOf(number);
+    }
 }

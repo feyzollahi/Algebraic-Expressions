@@ -46,4 +46,8 @@ public class ExponentExpression extends Expression{
     public Expression replaceVariable(Variable src, Variable dst) {
         return firstExp.replaceVariable(src, dst).exponent(secondExp.replaceVariable(src, dst));
     }
+    @Override
+    public String toString(){
+        return "( " + firstExp.toString() + " )" + "^" + "( " + secondExp.toString() + " )";
+    }
 }

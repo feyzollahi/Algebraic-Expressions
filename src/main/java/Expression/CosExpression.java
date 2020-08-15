@@ -33,4 +33,9 @@ public class CosExpression extends Expression {
     public Expression replaceVariable(Variable src, Variable dst) {
         return new CosExpression(inside.replaceVariable(src, dst));
     }
+
+    @Override
+    public String toString(){
+        return "cos( " + inside.toString() + " )";
+    }
 }

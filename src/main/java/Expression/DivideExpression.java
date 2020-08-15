@@ -47,4 +47,9 @@ public class DivideExpression extends Expression {
     public Expression replaceVariable(Variable src, Variable dst) {
         return firstExp.replaceVariable(src, dst).divide(secondExp.replaceVariable(src, dst));
     }
+
+    @Override
+    public String toString(){
+        return "(" + firstExp.toString() + ")" + " / " + "(" + secondExp.toString() + ")";
+    }
 }

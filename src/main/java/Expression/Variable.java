@@ -30,6 +30,11 @@ public class Variable extends Expression {
     }
 
     @Override
+    public String toString() {
+        return sign;
+    }
+
+    @Override
     public Expression replaceVariable(Variable src, Variable dst) {
         if(sign.equals(src.getSign())){
             return new Variable(dst.getSign());

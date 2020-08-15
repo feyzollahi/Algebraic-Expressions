@@ -15,6 +15,5 @@ public interface ExpressionInterface {
     Expression derivate(Variable var);
     Expression ln();
     Expression eval(Variable var, double val);
-    @Override
     String toString();
 }

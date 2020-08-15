@@ -30,4 +30,9 @@ public class LnExpression extends Expression {
     public Expression replaceVariable(Variable src, Variable dst) {
         return new LnExpression(inside.replaceVariable(src, dst));
     }
+
+    @Override
+    public String toString(){
+        return "Ln( " + inside.toString() + " )";
+    }
 }

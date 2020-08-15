@@ -30,6 +30,11 @@ public class SinExpression extends Expression {
     }
 
     @Override
+    public String toString() {
+        return "Sin( " + inside.toString() + " )";
+    }
+
+    @Override
     public Expression replaceVariable(Variable src, Variable dst) {
         return new SinExpression(inside.replaceVariable(src, dst));
     }

@@ -44,5 +44,9 @@ public class AddExpression extends Expression {
         }
     }
 
+    @Override
+    public String toString(){
+        return "(" + firstExp.toString() + ")" + " + " + "(" + secondExp.toString() + ")";
+    }
 
 }
