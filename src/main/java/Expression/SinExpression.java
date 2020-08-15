@@ -1,23 +1,36 @@
 package Expression;
 
 public class SinExpression extends Expression {
+    Expression inside;
+
+    public SinExpression(Expression inside) {
+        this.inside = inside;
+    }
+
     @Override
     public Expression eval(Variable var, double val) {
-        return null;
+        SinExpression exp = new SinExpression(inside.eval(var, val));
+        if(exp.isConstant()){
+            return new Constant(Math.sin(((Constant)exp.inside).eval()));
+        }
+        else{
+            return exp;
+        }
     }
 
     @Override
     public Expression derivate(Variable var) {
-        return null;
+        Expression exp = inside.derivate(var).multiply(new CosExpression(inside));
+        return exp;
     }
 
     @Override
     public boolean isConstant() {
-        return false;
+        return inside.isConstant();
     }
 
     @Override
     public Expression replaceVariable(Variable src, Variable dst) {
-        return null;
+        return new SinExpression(inside.replaceVariable(src, dst));
     }
 }
