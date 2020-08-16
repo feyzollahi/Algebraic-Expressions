@@ -47,6 +47,7 @@ public abstract class Expression implements ExpressionInterface {
     public abstract Expression derivate(Variable var);
     public abstract boolean isConstant();
     public abstract String toString();
+//    public abstract Expression simplify();
     public Expression makeNegative(){
         Constant constant = new Constant(-1);
         MultiplyExpression multiplyExpression = new MultiplyExpression(constant);

@@ -35,4 +35,17 @@ public class LnExpression extends Expression {
     public String toString(){
         return "Ln( " + inside.toString() + " )";
     }
+
+//    @Override
+//    public Expression simplify() {
+//        if(inside instanceof ExponentExpression){
+//            Expression exponent = ((ExponentExpression) inside).getSecondExp();
+//            MultiplyExpression multiplyExpression = new MultiplyExpression(exponent);
+//            multiplyExpression.setMultiplyExpression(new LnExpression(((ExponentExpression) inside).getFirstExp()));
+//            return multiplyExpression;
+//        }
+//        else{
+//            return this;
+//        }
+//    }
 }

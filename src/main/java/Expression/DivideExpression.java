@@ -34,7 +34,7 @@ public class DivideExpression extends Expression {
     public Expression derivate(Variable var) {
         Expression first = firstExp.derivate(var).multiply(secondExp);
         Expression second = firstExp.multiply(secondExp.derivate(var));
-        Expression result = first.subtract(second).divide(second.exponent(new Constant(2)));
+        Expression result = first.subtract(second).divide(secondExp.exponent(new Constant(2)));
         return result;//(f/g)' = (f'*g - f*g')/g^2
     }
 

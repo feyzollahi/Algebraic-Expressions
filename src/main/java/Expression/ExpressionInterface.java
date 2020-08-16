@@ -15,5 +15,6 @@ public interface ExpressionInterface {
     Expression derivate(Variable var);
     Expression ln();
     Expression eval(Variable var, double val);
+//    Expression simplify();
     String toString();
 }

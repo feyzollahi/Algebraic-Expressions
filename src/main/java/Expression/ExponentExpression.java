@@ -34,6 +34,11 @@ public class ExponentExpression extends Expression{
 
     @Override
     public Expression derivate(Variable var) {
+        if(secondExp.isConstant()){
+            Constant c = (Constant) secondExp.eval(var, 0);// for cast to Constant
+            Expression exp = firstExp.exponent(new Constant(c.eval() - 1)).multiply(c).multiply(firstExp.derivate(var));
+            return exp;
+        }
         return this.multiply((secondExp.multiply(firstExp.ln())).derivate(var));
     }
 
