@@ -3,6 +3,7 @@ import Expression.Constant;
 import Expression.SinExpression;
 import Expression.CosExpression;
 import static org.junit.Assert.*;
+import Expression.LnExpression;
 
 import Expression.Expression;
 import Expression.Variable;
@@ -92,6 +93,14 @@ public class Test1 {
         assertEquals(1000.0, ((Constant)val).eval(), 0.001);
         Expression val2 = exp.derivate(z).eval(x, 0).eval(y, 2).eval(z, 5);
         assertEquals(32*Math.log(2.0), ((Constant)val2).eval(), 0.001);
+    }
+
+    @Test
+    public void lnTest(){//ln(x) ==> derivate ==> 1/x ==> x = 2 ==> 0.5
+        Variable x = new Variable("x");
+        Expression exp = new LnExpression(x);
+        Expression val = exp.derivate(x).eval(x, 2);
+        assertEquals(0.5, ((Constant)val).eval(), 0.001);
     }
 }
 
